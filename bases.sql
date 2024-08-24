@@ -34,5 +34,4 @@ CREATE TABLE tbl_clientes(
     cantidad INT (30) NOT NULL,
     total INT NOT NULL,
     PRIMARY KEY(id)
-)
-
+)dfsdfsdfdfsdfsdf
