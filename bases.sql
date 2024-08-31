@@ -1,57 +1,60 @@
---creacion de bases de datos
 
 CREATE DATABASE bd_Productos;
 
---usar la base de datos
-
 USE bd_Productos;
 
---Crear una tabla
+
 
 CREATE TABLE tbl_producto(
-    id INT NOT NULL AUTO_INCREMENT,
+    id_producto  INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(25) NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
     fecha DATE NOT NULL,
-    categoria VARCHAR(25) NOT NULL,
+    id_categoria INT NOT NULL,
     email VARCHAR (25) NOT NULL,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id_producto),
+    FOREIGN KEY(id_categoria) REFERENCES tbl_catergoria(id_categoria)
+);
 
 CREATE TABLE tbl_clientes(
-    id INT NOT NULL, 
+    id_clientes INT NOT NULL , 
     nombre VARCHAR(50) NOT NULL,
     direccion VARCHAR(25) NOT NULL,
     forma_de_pago VARCHAR(20) NOT NULL,
-    vendedor VARCHAR(50) NOT NULL,
-    producto VARCHAR(25) NOT NULL,
+    id_vendedor INT NOT NULL,
+    id_producto INT NOT NULL,
     precio DECIMAL(20,10) NOT NULL,
     cantidad INT (30) NOT NULL,
     total INT NOT NULL,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id_clientes),
+    FOREIGN KEY(id_vendedor) REFERENCES tbl_vendedor(id_vendedor),
+    FOREIGN KEY(id_producto) REFERENCES tbl_producto(id_producto)
+
+
+);
 
 CREATE TABLE tbl_catergoria(
-    cod_categoria INT NOT NULL AUTO_INCREMENT,
+    id_categoria INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
-    sub_categoria VARCHAR(50) NOT NULL,
-    PRIMARY KEY(cod_categoria),
+    cod_sub_categoria INT NOT NULL,
+    PRIMARY KEY(id_categoria),
+    FOREIGN KEY(cod_sub_categoria) REFERENCES tbl_sub_categoria(cod_sub_categoria)
 
-)
+);
 
 CREATE TABLE tbl_sub_categoria(
-    cod_sub_categoria INT NOT NULL,
+    cod_sub_categoria INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50),
     PRIMARY KEY(cod_sub_categoria),
 
-    )
+);
 
 CREATE TABLE tbl_vendedor(
-    id INT NOT NULL,
+    id_vendedor INT NOT NULL,
     nombre VARCHAR(30) NOT NULL,
     numero_cell INT NOT NULL,
     genero VARCHAR(20),
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id_vendedor)
+);
 
 
