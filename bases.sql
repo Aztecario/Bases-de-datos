@@ -18,10 +18,7 @@ CREATE TABLE tbl_producto(
     PRIMARY KEY(id)
 )
 
-CREATE DATABASE bd_clientes;
-
-
-USE bd_clientes;
+USE bd_Productos; 
 
 CREATE TABLE tbl_clientes(
     id INT NOT NULL, 
@@ -34,4 +31,21 @@ CREATE TABLE tbl_clientes(
     cantidad INT (30) NOT NULL,
     total INT NOT NULL,
     PRIMARY KEY(id)
-)dfsdfsdfdfsdfsdf
+)
+
+CREATE TABLE tbl_catergoria(
+    cod_categoria INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    sub_categoria VARCHAR(50) NOT NULL,
+    PRIMARY KEY(cod_categoria)
+
+)
+
+CREATE TABLE tbl_sub_categoria(
+    cod_sub_categoria INT NOT NULL,
+    nombre VARCHAR(50),
+    PRIMARY KEY(cod_sub_categoria),
+
+    )
+
+
